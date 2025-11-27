@@ -2,26 +2,30 @@
 
 declare namespace NodeJS {
   interface ProcessEnv {
-    /**
-     * The built directory structure
-     *
-     * ```tree
-     * ├─┬─┬ dist
-     * │ │ └── index.html
-     * │ │
-     * │ ├─┬ dist-electron
-     * │ │ ├── main.js
-     * │ │ └── preload.js
-     * │
-     * ```
-     */
     APP_ROOT: string
-    /** /dist/ or /public/ */
     VITE_PUBLIC: string
   }
 }
 
-// Used in Renderer process, expose in `preload.ts`
-interface Window {
-  ipcRenderer: import('electron').IpcRenderer
+interface ClipItem {
+  id: number
+  text?: string
+  image?: string
+  createdAt: string
 }
+
+declare global {
+  interface Window {
+    api: {
+      ping?: () => string
+      getHistory: () => Promise<ClipItem[]>
+      copyText: (text: string) => Promise<void>
+      copyImage: (data: string) => Promise<void>
+      clearHistory: () => Promise<void>
+      pasteItem: (item: ClipItem) => Promise<void>
+      onUpdate: (callback: (data: ClipItem[]) => void) => void
+    }
+  }
+}
+
+export {}

@@ -1,9 +1,1 @@
-"use strict";
-const electron = require("electron");
-electron.contextBridge.exposeInMainWorld("api", {
-  getHistory: () => electron.ipcRenderer.invoke("get-history"),
-  copyText: (text) => electron.ipcRenderer.invoke("copy-text", text),
-  copyImage: (data) => electron.ipcRenderer.invoke("copy-image", data),
-  clearHistory: () => electron.ipcRenderer.invoke("clear-history"),
-  onUpdate: (callback) => electron.ipcRenderer.on("history-update", (_, data) => callback(data))
-});
+"use strict";const o=require("electron");console.log("Preload script loading...");const i={getHistory:()=>o.ipcRenderer.invoke("get-history"),copyText:e=>o.ipcRenderer.invoke("copy-text",e),copyImage:e=>o.ipcRenderer.invoke("copy-image",e),clearHistory:()=>o.ipcRenderer.invoke("clear-history"),pasteItem:e=>o.ipcRenderer.invoke("paste-item",e),onUpdate:e=>{const r=(c,t)=>e(t);return o.ipcRenderer.on("history-update",r),()=>{o.ipcRenderer.removeListener("history-update",r)}}};try{o.contextBridge.exposeInMainWorld("api",i),console.log("✅ API exposed successfully")}catch(e){console.error("❌ Failed to expose API:",e)}console.log("Preload script loaded");

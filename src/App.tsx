@@ -71,7 +71,7 @@ function App() {
   }
 
   return (
-    <div className="p-4 bg-gray-900 text-white h-screen overflow-hidden flex flex-col">
+    <div className="p-4 bg-gray-800 text-white h-screen overflow-hidden flex flex-col">
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div>

@@ -7,12 +7,12 @@ A floating clipboard history manager for macOS that stays on top of all windows,
 
 ## Features
 
-- 📋 **Clipboard History**: Automatically tracks text and images you copy
-- 🪟 **Always on Top**: Floats over all windows, including fullscreen apps
-- ⚡ **Global Shortcut**: Press `Cmd+Shift+V` anywhere to show/hide
-- 🔍 **Search**: Quickly find items in your clipboard history
-- 🖼️ **Image Support**: Works with both text and images
-- 🎯 **Auto-Paste**: One-click paste directly into applications
+-  **Clipboard History**: Automatically tracks text and images you copy
+- **Always on Top**: Floats over all windows, including fullscreen apps
+- **Global Shortcut**: Press `Cmd+Shift+V` anywhere to show/hide
+- **Search**: Quickly find items in your clipboard history
+- **Image Support**: Works with both text and images
+- **Auto-Paste**: One-click paste directly into applications
 
 ## Installation
 
